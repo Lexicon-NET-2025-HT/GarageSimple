@@ -70,7 +70,7 @@ namespace Övning5
         {
             for(var i = 0; i < spaces.Length; i++)
             {
-                if(spaces[i] != null && spaces[i].RegNr.ToLower() == regnr.ToLower())
+                if(spaces[i] != null && spaces[i]?.RegNr.ToLower() == regnr.ToLower())
                 {
                     spaces[i] = default(T);// null;  // här körs fordonet ut
                     current--;
@@ -80,11 +80,11 @@ namespace Övning5
             return false;
         }
 
-        public IQueryable<T> GetQuery()
-        {
-            var query = spaces.Where(p => p != null).AsQueryable();
-            return query;
-        }
+        //public IQueryable<T> GetQuery()
+        //{
+        //    var query = spaces.Where(p => p != null).AsQueryable();
+        //    return query;
+        //}
 
         public IEnumerator<T> GetEnumerator()
         {

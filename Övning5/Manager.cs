@@ -51,7 +51,7 @@ internal class Manager
                     ui.PrintVehicle(handler.GetFromRegNr(regNr));
                     break;
                 case ConsoleKey.D3:
-                    AddVehicle(handler, ui);
+                    AddVehicle();
                     break;
                 case ConsoleKey.D4:
                     RemoveVehicle(handler, ui);
@@ -146,12 +146,12 @@ internal class Manager
 
         foreach (var type in types)
         {
-            List<IVehicle> lista = currGarage.NrOfType(type);
-            ui.Output($"Det finns {lista.Count} fordon av typ {type}");
+            int nrOfTypes = currGarage.NrOfType(type);
+            ui.Output($"Det finns {nrOfTypes} fordon av typ {type}");
         }
     }
 
-    private void AddVehicle(IHandler handler, IUI ui)
+    private void AddVehicle()
     {
         if (handler.IsFull())
         {
@@ -159,7 +159,7 @@ internal class Manager
             return;
         }
 
-        var type = ui.GetVehicleType();
+        string type = ui.GetVehicleType();
 
         string regNr = "";
 
