@@ -6,7 +6,7 @@
 
         //private IQueryable<IVehicle> query;
         public void InitGarage();
-        public List<IVehicle> GetGarage();
+        public IEnumerable<IVehicle> GetGarage();
 
         public IVehicle? GetFromRegNr(string regNr);
 

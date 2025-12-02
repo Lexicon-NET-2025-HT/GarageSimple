@@ -17,14 +17,12 @@ internal class Manager
 
     public void Run()
     {
-       // IUI ui = new UI();
-
         handler = StartManager();
 
-        MainMenu(ui, handler);
+        MainMenu();
     }
 
-    public void MainMenu(IUI ui, IHandler handler)
+    public void MainMenu()
     {
 
         while (true)

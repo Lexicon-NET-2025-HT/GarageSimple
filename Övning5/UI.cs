@@ -52,7 +52,7 @@ namespace Övning5
             Console.WriteLine(input);
        }
 
-        public void PrintList(List<IVehicle> list)
+        public void PrintList(IEnumerable<IVehicle> list)
         {
             foreach (var vehicle in list)
             {

@@ -22,7 +22,7 @@ namespace Övning5
         }
 
         //Kan kanske förbättra/skriva ihop med något annat
-        public List<IVehicle> GetGarage()
+        public IEnumerable<IVehicle> GetGarage()
         {
             //List<IVehicle> output = new List<IVehicle>();
             //foreach (var vehicle in thisGarage)
@@ -32,19 +32,20 @@ namespace Övning5
             //    }
             //}
             //return output;
-            return thisGarage.ToList();
+            return thisGarage/*.Select(v => v.Stats())*/.ToList();
         }
 
         public IVehicle? GetFromRegNr(string regNr)
         {
-            foreach(var vehicle in thisGarage)
-            {
-                if(vehicle.RegNr.ToLower() == regNr.ToLower())
-                {
-                    return vehicle;
-                }
-            }
-            return null;
+            return thisGarage.FirstOrDefault(vehicle => vehicle.RegNr.ToLower() == regNr.ToLower());
+            //foreach(var vehicle in thisGarage)
+            //{
+            //    if(vehicle.RegNr.ToLower() == regNr.ToLower())
+            //    {
+            //        return vehicle;
+            //    }
+            //}
+            //return null;
         }
 
         public void AddVehicle(IVehicle vehicle)

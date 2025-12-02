@@ -10,7 +10,7 @@
 
         public void Output(string input);
 
-        public void PrintList(List<IVehicle> list);
+        public void PrintList(IEnumerable<IVehicle> list);
 
         public void PrintVehicle(IVehicle vehicle);
 

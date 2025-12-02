@@ -11,7 +11,7 @@ namespace Övning5
     {
         private int capacity;
         private int current;
-        private T[] spaces;
+        private T?[] spaces;
 
         public int Capacity {
             get
@@ -20,34 +20,34 @@ namespace Övning5
             }
         }
 
-        public bool IsFull
-        {
-            get
-            {
-                if (current >= capacity)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-        }
+        public bool IsFull => current >= capacity;
+        //    get
+        //    {
+        //        if (current >= capacity)
+        //        {
+        //            return true;
+        //        }
+        //        else
+        //        {
+        //            return false;
+        //        }
+        //    }
+        //}
 
         public Garage(int capacity)
         {
+            //Validate
             this.capacity = capacity;
             spaces = new T[capacity];
         }
 
         public bool Add(T input)
         {
-            if (IsFull)
+            if (IsFull && spaces.Any(v => v != null && v.RegNr == input.RegNr))
             {
                 return false;
             }
-            int firstEmpty = System.Array.IndexOf(spaces, null);
+            int firstEmpty = Array.IndexOf(spaces, null);
             spaces[firstEmpty] = input;
             current++;
             return true;
@@ -88,7 +88,7 @@ namespace Övning5
 
         public IEnumerator<T> GetEnumerator()
         {
-            foreach (T i in spaces)
+            foreach (T? i in spaces)
             {
                 if (i != null)
                 {
